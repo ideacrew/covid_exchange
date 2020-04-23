@@ -1,0 +1,15 @@
+pre {
+  @apply rounded py-3 px-6 break-words my-4 whitespace-pre-wrap bg-gray-200 rounded border-gray-300 border text-sm text-gray-700;
+
+  code {
+    @apply bg-transparent px-0 py-0 border-none;
+  }
+}
+
+code {
+  @apply px-1 bg-gray-200 rounded border-gray-300 border py-px text-sm text-gray-700;
+}
+
+pre.bg-code-600 code {
+  @apply text-gray-400;
+}

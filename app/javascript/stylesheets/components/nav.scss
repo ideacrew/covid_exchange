@@ -1,0 +1,20 @@
+.nav-link {
+  @apply block mr-6 no-underline text-primary-500 px-2 py-1;
+  line-height: 30px;
+
+  &:hover,
+  &:focus {
+    @apply text-primary-600;
+  }
+
+  &.active {
+    @apply font-bold;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav-link {
+    @apply inline-flex my-0;
+    line-height: 40px;
+  }
+}

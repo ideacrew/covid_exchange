@@ -1,0 +1,34 @@
+<div class="container m-auto my-10">
+  <div class="flex flex-wrap justify-center">
+    <div class="text-center">
+      <h1>Pricing</h1>
+      <p class="text-xl">Simple, straightforward pricing to get your online business up and running</p>
+    </div>
+  </div>
+
+  <div data-controller="pricing" data-current="monthly" data-pricing-plans-class="flex hidden" data-pricing-interval-class="bg-white text-black" class="flex flex-wrap items-center justify-center">
+
+    <div data-target="pricing.toggle" class="inline-block rounded-full bg-tertiary-500 py-2 px-1 text-white my-8">
+      <a data-action="click->pricing#switch" data-target="pricing.monthlyToggle" data-show="monthly" class="cursor-pointer py-2 px-4 bg-white rounded-full text-black">Monthly</a>
+      <a data-action="click->pricing#switch" data-target="pricing.yearlyToggle" data-show="yearly" class="cursor-pointer py-2 px-4 rounded-full"> Yearly</a>
+    </div>
+
+    <div class="w-full lg:px-0 px-2">
+      <div data-target="pricing.monthlyPlans" class="flex flex-wrap items-center justify-center -mx-4">
+        <% Plan.monthly.sorted.each do |plan| %>
+          <%= render layout: "subscriptions/plan", locals: { plan: plan } do %>
+            <%= link_to "Get Started", new_subscription_path(plan: plan.id), class: "btn btn-tertiary" %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div data-target="pricing.yearlyPlans" class="hidden flex-wrap items-center justify-center -mx-4">
+        <% Plan.yearly.sorted.each do |plan| %>
+          <%= render layout: "subscriptions/plan", locals: { plan: plan } do %>
+            <%= link_to "Get Started", new_subscription_path(plan: plan.id), class: "btn btn-tertiary" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

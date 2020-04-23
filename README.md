@@ -1,37 +1,57 @@
-## Welcome to GitHub Pages
+# Jumpstart Pro Rails Template
 
-You can use the [editor on GitHub](https://github.com/ideacrew/covid_exchange/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+All your Rails apps should start off with a bunch of great defaults. It's like Laravel Spark, for Rails.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+**Note:** Requires Rails 5.2 or higher
 
-### Markdown
+## Getting Started
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Jumpstart Pro is a preconfigured Rails application, so you can either
+download the code or clone this repository and add your own repo as a
+remote to merge in updates.
 
-```markdown
-Syntax highlighted code block
+#### Requirements
 
-# Header 1
-## Header 2
-### Header 3
+You'll need the following installed to run the template successfully:
 
-- Bulleted
-- List
+* Ruby 2.6 or higher
+* bundler - `gem install bundler`
+* Redis - For ActionCable support (and Sidekiq, caching, etc)
+* PostgreSQL - `brew install postgresql`
+* Imagemagick - `brew install imagemagick`
+* Yarn - `brew install yarn` or [Install Yarn](https://yarnpkg.com/en/docs/install)
+* Foreman (optional) - `gem install foreman` - helps run all your
+  processes in development
+* [Stripe CLI](https://stripe.com/docs/stripe-cli) for Stripe webhooks in development - `brew install stripe/stripe-cli/stripe`
 
-1. Numbered
-2. List
+#### Initial Setup
 
-**Bold** and _Italic_ and `Code` text
+First, you'll want to tweak `config/database.yml` and change the
+database name. You can also rename the app in the Jumpstart admin UI
+which updates the app name in the navbar, footer, etc.
 
-[Link](url) and ![Image](src)
+Optionally, you can rename the application name in
+`config/application.rb`. This won't affect anything, so it's not too
+important.
+
+Next, you can run `bin/setup` to install Rubygem and Javascript dependencies. This will also install foreman system wide for you and setup your database.
+
+#### Running Jumpstart Pro
+
+If you're using foreman: `foreman start`
+
+Otherwise, you'll need to spin up several processes in different
+terminals:
+
+```bash
+rails server
+
+# Your background workers
+sidekiq # or whatever you're using
+
+# Optionally, the webpack dev server for automatically reloading JS and CSS changes
+bin/webpack-dev-server
+
+# Stripe requires webhooks for SCA payments
+stripe listen --forward-to localhost:5000/webhooks/stripe
 ```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ideacrew/covid_exchange/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.

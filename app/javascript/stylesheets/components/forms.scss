@@ -1,0 +1,88 @@
+.form-group {
+  @apply mb-6 relative;
+}
+
+.form-control {
+  @apply appearance-none block w-full bg-white text-gray-900 border border-gray-400 rounded py-3 px-4 leading-tight;
+
+  transition: ease 0.2s border;
+
+  &:focus {
+    @apply outline-none bg-white border-primary-500;
+  }
+
+  &::placeholder {
+    @apply text-gray-500;
+  }
+
+  &.error {
+    @apply border-red-300;
+  }
+
+  &.form-file {
+    width: inherit;
+    height: auto;
+    z-index: 2;
+    cursor: pointer;
+
+    @apply inline-block opacity-0 pl-0 pr-0 py-3 px-3 overflow-hidden absolute border-none;
+  }
+
+  &.form-file + label {
+    @extend .btn;
+    @extend .btn-white;
+    @extend .gray;
+
+    @apply cursor-pointer;
+
+    * {
+      pointer-events: none;
+    }
+
+    &:focus {
+      outline: 1px dotted #000;
+      outline: -webkit-focus-ring-color auto 5px;
+    }
+  }
+}
+
+label,
+.label {
+  @apply block uppercase tracking-wide text-gray-800 text-xs font-semibold mb-2 cursor-pointer;
+}
+
+.form-hint {
+  @apply text-gray-600 text-xs italic;
+
+  &.error {
+    @apply text-red-500 text-sm italic leading-normal mt-1;
+  }
+}
+
+select,
+.select {
+  @apply relative block appearance-none w-full bg-white border border-gray-300 text-gray-900 py-3 px-4 pr-8 rounded leading-tight cursor-pointer;
+
+  &:focus {
+    @apply outline-none bg-white border-primary-500;
+  }
+}
+
+.caret {
+  @apply pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-800;
+}
+
+
+form.inline {
+  .form-group {
+    @apply flex justify-start items-center;
+  }
+
+  .form-group .input {
+    @apply flex-1;
+  }
+
+  .form-group .label {
+    @apply w-1/4;
+  }
+}
