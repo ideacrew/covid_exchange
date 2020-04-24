@@ -1,6 +1,7 @@
 GIT
-  remote: git://github.com/fatfreecrm/fat_free_crm.git
-  revision: 7793c425aab8a5466c9c79c546f5cd18afaa8ddb
+  remote: git://github.com/bill-transue/fat_free_crm.git
+  revision: 6279a90b3a8bda08acf37bb50a0ff0bf10fda46c
+  branch: rails_5
   specs:
     fat_free_crm (0.19.0)
       activemodel-serializers-xml

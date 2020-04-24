@@ -35,7 +35,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'fat_free_crm', :git => 'git://github.com/fatfreecrm/fat_free_crm.git'
+gem 'fat_free_crm', :git => 'git://github.com/bill-transue/fat_free_crm.git', branch: 'rails_5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
