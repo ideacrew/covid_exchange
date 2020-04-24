@@ -40,25 +40,6 @@ Rails.application.routes.draw do
     end
   end
 
-  # User account
-  devise_for :users,
-    controllers: {
-      masquerades: "jumpstart/masquerades",
-      omniauth_callbacks: "users/omniauth_callbacks",
-      registrations: "users/registrations"
-    }
-
-  resources :announcements, only: [:index]
-  resources :api_tokens
-  resources :accounts do
-    member do
-      patch :switch
-    end
-
-    resources :account_users, path: :members
-    resources :account_invitations, path: :invitations, module: :accounts
-  end
-  resources :account_invitations
 
   # Payments
   resource :card

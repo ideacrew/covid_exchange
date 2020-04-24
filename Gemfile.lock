@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/bill-transue/fat_free_crm.git
-  revision: 848d0e5160fcd22e0a516ddbe8f86fc8cc96ae1c
+  revision: 03f1b81abc6192cc5c546905dcfd411d78c831eb
   specs:
     fat_free_crm (0.19.0)
       activemodel-serializers-xml
