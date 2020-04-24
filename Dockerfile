@@ -4,7 +4,7 @@
 # docker-compose up
 # docker-compose exec web bundle exec rake db:create db:schema:load ffcrm:demo:load
 
-FROM ruby:2.7 AS covidledger_base
+FROM ruby:2.6.5 AS covidledger_base
 
 LABEL author="Ideacrew"
 
