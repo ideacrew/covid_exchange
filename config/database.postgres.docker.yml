@@ -1,7 +1,7 @@
 ---
 development: &development
   adapter: postgresql
-  database: fat_free_crm_development
+  database: covid_exchange_development
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
   host:     <%= ENV['DB_HOST'] %>
@@ -14,7 +14,7 @@ development: &development
 # Do not set this db to the same as development or production.
 test:
   <<: *development
-  database: fat_free_crm_test
+  database: covid_exchange_test
 
 production:
   <<: *development
@@ -22,4 +22,4 @@ production:
 
 staging:
   <<: *development
-  database: fat_free_crm_staging
+  database: covid_exchange_staging
