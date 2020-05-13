@@ -16,7 +16,7 @@ module EncryptedFieldAccessors
 
   included do
     if ActiveRecord::Base.connection.table_exists? 'fat_free_crm_fields'
-      FatFreeCrm::Field.joins(:field_group).where(as: 'encrypted_field' , fat_free_crm_field_groups: { klass_name: 'FatFreeCrm::Contact' }).each do |field|
+      FatFreeCrm::Field.joins(:field_group).where(as: 'encrypted_field' , fat_free_crm_field_groups: { klass_name: name }).each do |field|
         define_method "#{field.name}=" do |value|
           write_attribute field.name, SymmetricEncryption.encrypt(value)
         end
